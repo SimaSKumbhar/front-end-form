@@ -2,6 +2,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
+const baseurl="https://auth-uses-mern.onrender.com"
 
 function Signup() {
     const [name, setName] = useState()
@@ -12,7 +13,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', {name, dob, email, password})
+        axios.post(`${baseurl}/register`, {name, dob, email, password})
         .then(res => {
             navigate('/login')
         }).catch(err => console.log(err))
