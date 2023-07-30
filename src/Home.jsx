@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
-
+const baseurl="https://auth-uses-mern.onrender.com"
 
 
 
@@ -9,7 +9,7 @@ function Home() {
     const[users,setUsers]=useState([])
     axios.defaults.withCredentials=true;
     useEffect(()=>{
-        axios.get('http://localhost:3001/home')
+        axios.get(`${baseurl}/home`)
         .then(result =>{console.log(result)
             if(result.data!=="Success") {
                  navigate('/login')
