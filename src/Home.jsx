@@ -19,7 +19,7 @@ function Home() {
         .catch(err=>console.log(err))
     },[])
     useEffect(()=>{
-        axios.get('http://localhost:3001/')
+        axios.get(`${baseurl}`)
         .then(users=>setUsers(users.data))
         .catch(err=>console.log(err))
     },[])
