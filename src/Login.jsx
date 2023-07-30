@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
+const baseurl="https://auth-uses-mern.onrender.com"
 
 
 function Login() {
@@ -13,7 +14,7 @@ function Login() {
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/login', {email, password})
+        axios.post(`${baseurl}/login`, {email, password})
         .then(res => {
             console.log(res);
             localStorage.setItem("user",data.current.value)
